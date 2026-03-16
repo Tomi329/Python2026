@@ -45,6 +45,7 @@ while attempts > 0:
         guessed.append(letter)
         attempts -= 1
         print("Esa letra no está en la palabra.")
+        
     print()
 
 else:
