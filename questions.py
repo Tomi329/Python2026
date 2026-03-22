@@ -1,4 +1,5 @@
 import random
+import numbers
 
 words = [
     "python",
@@ -25,7 +26,7 @@ while attempts > 0:
             progress += letter + " "
         else:
                 progress += "_ "
-        print(progress)
+    print(progress)
     # Verificar si el jugador ya adivinó la palabra completa
     if "_" not in progress:
         print("¡Ganaste!")
@@ -35,6 +36,10 @@ while attempts > 0:
     print(f"Letras usadas: {', '.join(guessed)}")
 
     letter = input("Ingresá una letra: ")
+    
+    if letter.isnumeric() or len(letter) != 1:
+        print("Entrada inválida")
+        continue
 
     if letter in guessed:
         print("Ya usaste esa letra.")
