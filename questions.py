@@ -36,7 +36,7 @@ while attempts > 0:
 
     letter = input("Ingresá una letra: ")
     
-    if letter.isnumeric() or len(letter) != 1:
+    if not letter.isalpha() or len(letter) != 1:
         print("Entrada inválida")
         continue
 
