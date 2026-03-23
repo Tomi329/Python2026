@@ -1,24 +1,39 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "entero",
-    "cadena",
-    "lista",
-    ]
-word = random.choice(words)
+# cambiado lista --> diccionario
+words = {
+    "1": ["bucle", "lista"],
+    "2": ["python", "entero", "cadena"],
+    "3": ["programa", "variable", "funcion"]
+    }
 guessed = []
 attempts = 6
-puntaje = 0
+puntaje = 0 # agregado
 
 print("¡Bienvenido al Ahorcado!")
 print()
 
-while attempts > 0:
+# agregado
+diff = (input("""Dificultades:
+        1- Fácil
+        2- Medio
+        3- Difícil
+              
+Elija su dificultad: """))
+
+while not diff.isnumeric() or diff < "1" or diff > "3":
+        print("Entrada invalida")
+
+        diff = (input("""Dificultades:
+        1- Fácil
+        2- Medio
+        3- Difícil
+                      
+Elija su dificultad: """))
+        
+word = random.choice(words[diff])
+
+while attempts > 0: 
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
     progress = ""
     for letter in word:
